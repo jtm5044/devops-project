@@ -1,0 +1,44 @@
+   
+version: "3"
+
+services:
+    # Gitlab Service
+    web:
+      image: 'gitlab/gitlab-ce:latest'
+      restart: always
+      hostname: 'gitlab'
+      environment:
+        GITLAB_OMNIBUS_CONFIG: |
+          external_url 'https://gitlab.example.com'
+      ports:
+        - '8000:8000'
+        - '8443:8443'
+        - '22:22'
+      volumes:
+        - 'gitlab-config:/etc/gitlab'
+        - 'gitlab-logs:/var/log/gitlab'
+        - 'gitlab-data:/var/opt/gitlab'
+
+    # Sonarqube Service
+    sonarqube:
+        image: sonarqube:8.2-community
+        container_name: sonarqube
+        hostname: sonarqube
+        expose:
+            - 9000
+        ports:
+            - '9000:9000'
+        volumes:
+            - sonarqube_logs:/opt/sonarqube/logs
+            - sonarqube_data:/opt/sonarqube/data
+            - sonarqube_conf:/opt/sonarqube/conf
+            - sonarqube_extensions:/opt/sonarqube/extensions
+
+volumes:
+    gitlab-config:
+    gitlab-logs:
+    gitlab-data:
+    sonarqube_logs:
+    sonarqube_data:
+    sonarqube_conf:
+    sonarqube_extensions:
