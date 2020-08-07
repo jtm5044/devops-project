@@ -1,4 +1,3 @@
-#!/bin/bash
 sudo rm -rf .scannerwork
 
 sudo /home/xroot/sonar-scanner/sonar-scanner-4.4.0.2170-linux/bin/sonar-scanner \
