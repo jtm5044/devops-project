@@ -19,7 +19,7 @@ services:
 
     # Sonarqube Service
     sonarqube:
-        image: sonarqube:8.2-community
+        image: sonarqube:7.9-community
         container_name: dc-sonarqube
         hostname: 100.16.0.53
         expose:
