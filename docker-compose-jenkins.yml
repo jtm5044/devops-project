@@ -1,0 +1,5 @@
+services:
+    # Hello world Service
+    web:
+      image: 'hello-world'
+      container_name: helloworld
