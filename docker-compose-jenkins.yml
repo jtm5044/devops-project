@@ -1,5 +1,15 @@
+
+version: "3"
+
 services:
-    # Hello world Service
-    web:
-      image: 'hello-world'
-      container_name: helloworld
+
+    # Jenkins Service
+    jenkins:
+        image: "jenkins:2.60.3"
+        container_name: dc-jenkins
+        ports:
+            - "8080:8080"
+        restart: "always"
+        hostname: 100.16.0.53
+        volumes:
+            - "C:\\users\\maszkln1\\Desktop\\data-jenkins:/var/jenkins_home"
