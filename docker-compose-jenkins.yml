@@ -5,11 +5,11 @@ services:
 
     # Jenkins Service
     jenkins:
-        image: "jenkins:2.60.3"
+        image: jenkins/jenkins:lts
         container_name: dc-jenkins
         ports:
-            - "8080:8080"
+            - "11080:8080"
         restart: "always"
         hostname: 100.16.0.53
         volumes:
-            - "C:\\users\\maszkln1\\Desktop\\data-jenkins:/var/jenkins_home"
+            - "/home/xroot/data-jenkins:/var/jenkins_home"
