@@ -1,8 +1,36 @@
+image: docker:latest
+services:
+- docker:dind
+
 stages:
-    - publish
-Sonar_Publish:
-    stage: publish
-    script:
-        - ./sonar_scan.sh
-    tags:
-        - sonarqube
+- build
+- test
+- release
+
+variables:
+  TEST_IMAGE: 100.16.0.53:5555/jmart204/devops-project:$CI_COMMIT_REF_NAME
+  RELEASE_IMAGE: 100.16.0.53:5555/jmart204/devops-project:latest
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN 100.16.0.53:5555
+
+build:
+  stage: build
+  script:
+    - docker build --pull -t $TEST_IMAGE .
+    - docker push $TEST_IMAGE
+
+test:
+  stage: test
+  script:
+    - docker pull $TEST_IMAGE
+    - docker run $TEST_IMAGE npm test
+
+release:
+  stage: release
+  script:
+    - docker pull $TEST_IMAGE
+    - docker tag $TEST_IMAGE $RELEASE_IMAGE
+    - docker push $RELEASE_IMAGE
+  only:
+    - master
