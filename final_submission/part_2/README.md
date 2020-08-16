@@ -1,4 +1,4 @@
-# DevOps Project - Part 2
+# DevOps Project - Part 2 - GitLab CI & SonarQube
 
 ## Course Info
 
