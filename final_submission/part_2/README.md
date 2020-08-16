@@ -38,6 +38,9 @@ Automate scanning of OWASP Juice Shop code with a GitLab CI Pipeline that invoke
 - `sonar_scan.sh`
     - Ensures typescript is installed & available for `gitlab-runner`, invokes `sonar-scanner` on the OWASP Juice Shop source code, and cleans up the `.scannerwork/` directory
     - Invoked by `gitlab-runner` when the Sonar_Publish pipeline stage runs
+- `part_2_video/`
+    - This directory contains all four videos for part 2 demonstration
+    - Meant to be watched in order from Video1of4 through Video4of4
 
 ## Overall Demonstration Flow
 
@@ -49,3 +52,4 @@ Automate scanning of OWASP Juice Shop code with a GitLab CI Pipeline that invoke
 1. `sonar_scan.sh` invokes `sonar-scanner` and scans the source code
 1. `sonar-scanner` uploads the results to SonarQube
 1. The scan results are viewable within SonarQube
+
