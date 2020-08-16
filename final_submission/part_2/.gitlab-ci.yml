@@ -1,8 +1,0 @@
-stages:
-    - publish
-Sonar_Publish:
-    stage: publish
-    script:
-        - ./sonar_scan.sh
-    tags:
-        - sonarqube
