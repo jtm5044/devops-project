@@ -13,3 +13,4 @@ services:
         hostname: 100.16.0.53
         volumes:
             - "/home/xroot/data-jenkins:/var/jenkins_home"
+            - "/usr/bin/snyk:/var/snyk"
