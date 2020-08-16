@@ -41,6 +41,9 @@ Automate scanning of OWASP Juice Shop Docker Image hosted in the GitLab Containe
     - Configuration file for the host's Docker daemon that defines the GitLab container registry as an insecure registry and instructs the docker daemon to trust the GitLab container registry
     - Lives under `/etc/docker/daemon.json`
     - Invoked when the docker daemon is started
+- `part_3_video/`
+    - This directory contains all four videos for part 3 demonstration
+    - Meant to be watched in order from Video1of4 through Video4of4
 
 
 ## Overall Demonstration Flow
@@ -55,5 +58,5 @@ Automate scanning of OWASP Juice Shop Docker Image hosted in the GitLab Containe
 1. The Jenkins Pipeline completes the `GitLabTrigger` job and starts the `SnykScan` job
 1. The `SnykScan` job scans the OWASP Juice Shop Image (tagged `100.16.0.53:5555/rliu1/final-project-part3`) with the `--docker 100.16.0.53:5555/rliu1/final-project-part3` flag configured in Jenkins
 1. The build breaks because a vulnerability of severity HIGH is found
-1. Snyk uploads the results to the snyk.io website
-1. The scan results are viewable within at the snyk.io website
+1. Snyk uploads the results to the snyk.io website & Jenkins
+1. The scan results are viewable within the snyk.io website & Jenkins
