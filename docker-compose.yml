@@ -32,3 +32,15 @@ services:
             - '/home/xroot/sonarqube/data:/opt/sonarqube/data'
             - '/home/xroot/sonarqube/conf:/opt/sonarqube/conf'
             - '/home/xroot/sonarqube/extensions:/opt/sonarqube/extensions'
+    
+    # Jenkins Service
+    jenkins:
+        image: jenkins:devops
+        container_name: dc-jenkins
+        ports:
+            - "11080:8080"
+        restart: "always"
+        hostname: 100.16.0.53
+        volumes:
+            - "/home/xroot/data-jenkins:/var/jenkins_home"
+            - "/var/run/docker.sock:/var/run/docker.sock"
